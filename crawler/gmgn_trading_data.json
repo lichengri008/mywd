@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-08-10T17:08:29.917546",
+  "data": [
+    {
+      "symbol": "BTC/USDT",
+      "timestamp": "2025-08-10T17:08:23.906918",
+      "volume_data": {
+        "error": "Page.screenshot: Target page, context or browser has been closed"
+      },
+      "status": "success"
+    },
+    {
+      "symbol": "ETH/USDT",
+      "timestamp": "2025-08-10T17:08:25.911351",
+      "error": "Page.goto: Target page, context or browser has been closed",
+      "status": "error"
+    },
+    {
+      "symbol": "BNB/USDT",
+      "timestamp": "2025-08-10T17:08:27.915937",
+      "error": "Page.goto: Target page, context or browser has been closed",
+      "status": "error"
+    }
+  ]
+}
