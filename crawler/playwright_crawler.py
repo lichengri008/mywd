@@ -87,6 +87,7 @@ class PlaywrightCrawler:
             # 爬取官网首页标题
             heroTitle = await self.page.wait_for_selector("h1.hero__title")
             title = await heroTitle.text_content()
+            print(f"✅ 找到元素 h1.hero__title, 页面标题: {title}")
             data["title"] = title
 
             # 截图保存
@@ -113,7 +114,7 @@ async def main():
     """主函数"""
     change_dir()  # 切换执行目录
 
-    crawler = PlaywrightCrawler(headless=True)  # 设置为False以便观察爬取过程
+    crawler = PlaywrightCrawler(headless=False)  # 设置为False以便观察爬取过程
 
     try:
         await crawler.start_browser()
