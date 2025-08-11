@@ -72,7 +72,7 @@ class PlaywrightCrawler:
     async def snapshot(self):
         # 截图保存
         print("正在截图...")
-        screenshot_path = f"{current_config.LOG_DIR}/playwright_{int(time.time())}.png"
+        screenshot_path = f"{current_config.SCREENSHOT_DIR}/playwright_{int(time.time())}.png"
         await self.page.screenshot(path=screenshot_path)
         print(f"页面截图已保存到: {screenshot_path}")
 
