@@ -6,7 +6,7 @@
 crawler/
 ├── config.py            # 配置文件（可以忽略）
 ├── setup.py             # 环境安装脚本（可以单独运行，可以仔细看下）
-├── gmgn.py              # 主要爬虫类
+├── gmgn_crawler.py              # 主要爬虫类
 ├── requirements.txt     # Python依赖
 └── README.md            # 详细使用说明
 ```

@@ -109,7 +109,7 @@ def test_installation():
             print("✅ Playwright导入成功")
         
         # 测试导入爬虫类
-        from gmgn import GMGNCrawler
+        from gmgn_crawler import GMGNCrawler
         print("✅ 爬虫类导入成功")
         
         return True

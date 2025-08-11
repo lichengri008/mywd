@@ -221,6 +221,5 @@ async def main():
         await crawler.close_browser()
 
 
-# PS: 这段代码很常见， 用来判断是直接运行的( python gmgn.py ) 还是被导入的( from gmgn import GMGNCrawler ). 如果是直接运行的，就执行if里的代码， 不然就忽略。
 if __name__ == "__main__":
     asyncio.run(main())

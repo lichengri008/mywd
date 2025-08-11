@@ -7,7 +7,7 @@ GMGN爬虫启动脚本
 
 import asyncio
 import argparse
-from gmgn import GMGNCrawler
+from gmgn_crawler import GMGNCrawler
 
 
 async def run_crawler(symbols, headless=True, save_file=True):

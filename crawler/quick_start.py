@@ -8,7 +8,7 @@ GMGN爬虫快速启动脚本
 import asyncio
 import json
 from datetime import datetime
-from gmgn import GMGNCrawler
+from gmgn_crawler import GMGNCrawler
 
 
 async def quick_demo():
