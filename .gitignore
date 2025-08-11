@@ -1,3 +1,11 @@
-venv/
-playerwright-sample/test-cases/__pycache__
-.DS_Store
+# cache
+**/vevn/
+**/__pycache__
+**/.pytest_cache
+**/.DS_Store
+
+
+# crawler
+crawler/data
+crawler/logs
+crawler/screenshots
