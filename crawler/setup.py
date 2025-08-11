@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GMGN爬虫环境安装脚本
+爬虫环境安装脚本
 自动安装所需的依赖和浏览器
 """
 
@@ -10,18 +10,36 @@ import sys
 import os
 
 
+def get_working_path():
+    # 获取当前文件所在目录
+    file_dir = os.path.dirname(os.path.abspath(__file__))
+    return file_dir
+
+def change_dir():
+    file_dir = get_working_path()
+    current_dir = os.getcwd()
+    if current_dir != file_dir:
+        print(f"ℹ️  切换到文件所在目录: {file_dir}")
+        os.chdir(file_dir)
+
 def run_command(command, description):
     """运行命令并显示进度"""
     print(f"🔄 {description}...")
+    
+    file_dir = get_working_path()
+    
     try:
-        result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
+        # 明确指定在文件所在目录中运行命令
+        subprocess.run(command, shell=True, check=True, capture_output=True, text=True, cwd=file_dir)
         print(f"✅ {description}完成")
-        return True
+        result = True
     except subprocess.CalledProcessError as e:
         print(f"❌ {description}失败: {e}")
         if e.stderr:
             print(f"错误详情: {e.stderr}")
-        return False
+        result = False
+
+    return result
 
 
 def check_python_version():
@@ -45,7 +63,7 @@ def install_dependencies():
     if not run_command("python -m pip install --upgrade pip", "升级pip"):
         return False
     
-    # 安装依赖
+    # 根据requirements.txt安装依赖
     if not run_command("python -m pip install -r requirements.txt", "安装依赖包"):
         return False
     
@@ -103,9 +121,12 @@ def test_installation():
 
 def main():
     """主安装函数"""
-    print("🚀 GMGN爬虫环境安装程序")
+    print("🚀 爬虫环境安装程序")
     print("=" * 50)
     
+    # 切换路径
+    change_dir()
+
     # 检查Python版本
     if not check_python_version():
         print("\n❌ 环境检查失败，请升级Python版本后重试")

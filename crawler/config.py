@@ -6,7 +6,7 @@ GMGN爬虫配置文件
 """
 
 import os
-from typing import Dict, List
+from typing import List
 
 
 class Config:
@@ -14,10 +14,14 @@ class Config:
     
     # 基础配置
     BASE_URL = "https://gmgn.ai/"
+
     HEADLESS = True
     VIEWPORT_WIDTH = 1920
     VIEWPORT_HEIGHT = 1080
     
+    # 确认选择器
+    PAGE_LOADED_SEL_TEXT = "Log In"
+
     # 浏览器配置
     BROWSER_ARGS = [
         '--no-sandbox',
@@ -94,7 +98,7 @@ class Config:
     RETRY_DELAY = 5
     
     @classmethod
-    def get_browser_args(cls) -> List[str]:
+    def get_browser_args(cls):
         """获取浏览器启动参数"""
         return cls.BROWSER_ARGS.copy()
     

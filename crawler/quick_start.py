@@ -60,49 +60,6 @@ async def quick_demo():
         print("🔚 浏览器已关闭")
 
 
-async def batch_demo():
-    """批量获取演示"""
-    print("\n🔄 批量获取演示")
-    print("=" * 30)
-    
-    crawler = GMGNCrawler(headless=True)  # 使用无头模式提高速度
-    
-    try:
-        await crawler.start_browser()
-        
-        # 获取多个交易对数据
-        symbols = ["BTC/USDT", "ETH/USDT", "BNB/USDT"]
-        print(f"📊 批量获取 {len(symbols)} 个交易对数据...")
-        
-        results = await crawler.get_multiple_symbols_volume(symbols)
-        
-        print("\n📈 获取结果:")
-        for result in results:
-            status_icon = "✅" if result['status'] == 'success' else "❌"
-            print(f"  {status_icon} {result['symbol']}")
-            
-            if result['status'] == 'success':
-                volume_data = result['volume_data']
-                if '24h_volume' in volume_data:
-                    print(f"     成交量: {volume_data['24h_volume']}")
-        
-        # 保存批量数据
-        filename = f"batch_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-        with open(filename, "w", encoding="utf-8") as f:
-            json.dump({
-                "timestamp": datetime.now().isoformat(),
-                "symbols": symbols,
-                "data": results
-            }, f, ensure_ascii=False, indent=2)
-        print(f"\n💾 批量数据已保存到: {filename}")
-        
-    except Exception as e:
-        print(f"❌ 批量获取出错: {e}")
-        
-    finally:
-        await crawler.close_browser()
-
-
 def main():
     """主函数"""
     print("🎯 选择演示模式:")

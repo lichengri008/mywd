@@ -37,23 +37,7 @@ async def run_crawler(symbols, headless=True, save_file=True):
                 print(f"   24h涨跌: {result['volume_data'].get('24h_change', 'N/A')}")
             else:
                 print(f"❌ 获取 {symbols[0]} 数据失败: {result.get('error', '未知错误')}")
-                
-        else:
-            # 多个交易对
-            print(f"📊 正在获取 {len(symbols)} 个交易对的数据...")
-            results = await crawler.get_multiple_symbols_volume(symbols)
-            
-            print("\n📈 获取结果:")
-            for result in results:
-                status_icon = "✅" if result['status'] == 'success' else "❌"
-                print(f"  {status_icon} {result['symbol']}: {result['status']}")
-                
-                if result['status'] == 'success':
-                    volume_data = result['volume_data']
-                    print(f"     24h成交量: {volume_data.get('24h_volume', 'N/A')}")
-                    print(f"     当前价格: {volume_data.get('current_price', 'N/A')}")
-                    print(f"     24h涨跌: {volume_data.get('24h_change', 'N/A')}")
-        
+ 
         # 保存数据到文件
         if save_file and len(symbols) > 1:
             import json
