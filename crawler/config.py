@@ -15,7 +15,8 @@ class Config:
     # 基础配置
     BASE_URL = "https://gmgn.ai/"
 
-    HEADLESS = True
+    # 运行模式
+    HEADLESS = False
     VIEWPORT_WIDTH = 1920
     VIEWPORT_HEIGHT = 1080
     
@@ -24,19 +25,24 @@ class Config:
 
     # 浏览器配置
     BROWSER_ARGS = [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
-        '--no-first-run',
-        '--no-zygote',
-        '--disable-gpu',
-        '--disable-web-security',
-        '--disable-features=VizDisplayCompositor'
+        # '--no-sandbox',
+        # '--disable-setuid-sandbox',
+        # '--disable-dev-shm-usage',
+        # '--disable-accelerated-2d-canvas',
+        # '--no-first-run',
+        # '--no-zygote',
+        # '--disable-gpu',
+        # '--disable-web-security',
+        # '--disable-features=VizDisplayCompositor'
+        # 尽量保持接近真实浏览器，避免使用明显的自动化标志
+        '--disable-blink-features=AutomationControlled',
     ]
     
     # 用户代理
-    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+    ACCEPT_LANGUAGE = os.getenv('CRAWLER_ACCEPT_LANGUAGE', 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7')
+    LOCALE = os.getenv('CRAWLER_LOCALE', 'en-US')
+    TIMEZONE_ID = os.getenv('CRAWLER_TZ', 'Asia/Shanghai')
     
     # 延迟配置
     PAGE_LOAD_WAIT = 3
@@ -89,6 +95,12 @@ class Config:
     DATA_DIR = "data"
     SCREENSHOT_DIR = "screenshots"
     LOG_DIR = "logs"
+
+    # 持久化上下文（使用真实 Chrome 通道）
+    USE_PERSISTENT_CONTEXT = True
+    USE_CHROME_CHANNEL = True
+    CHANNEL = 'chrome'  # 使用本机已安装的 Chrome，指纹更自然
+    USER_DATA_DIR = os.path.join(os.path.expanduser("~"), ".mywd", "playwright", "gmgn")
     
     # 默认交易对
     DEFAULT_SYMBOLS = ["BTC/USDT", "ETH/USDT", "BNB/USDT"]
