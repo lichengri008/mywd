@@ -4,11 +4,10 @@
 **/.pytest_cache
 **/.DS_Store
 
-
-# crawler
-crawler/data
-crawler/logs
-crawler/screenshots
+# gmgn
+# **/gmgn/data
+# **/gmgn/logs
+# **/gmgn/screenshots
 
 # node
 **/node_modules/
