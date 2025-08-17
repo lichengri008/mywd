@@ -153,17 +153,6 @@ def main():
         return
     
     print("\n🎉 安装完成！")
-    print("\n📖 使用方法:")
-    print("  1. 获取单个交易对数据:")
-    print("     python run_crawler.py BTC/USDT")
-    print("  2. 获取多个交易对数据:")
-    print("     python run_crawler.py BTC/USDT ETH/USDT")
-    print("  3. 使用无头模式:")
-    print("     python run_crawler.py BTC/USDT --headless")
-    print("  4. 运行测试:")
-    print("     python test_crawler.py")
-    print("\n💡 提示: 首次运行建议不使用--headless参数，以便观察爬取过程")
-
 
 if __name__ == "__main__":
     main()

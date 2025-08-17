@@ -11,7 +11,7 @@ import time
 from datetime import datetime
 from typing import Dict
 from playwright.async_api import async_playwright, expect
-from util import change_dir
+from utils.util import change_dir
 import os
 from config import current_config
 
