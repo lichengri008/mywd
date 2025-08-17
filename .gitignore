@@ -5,9 +5,9 @@
 **/.DS_Store
 
 # gmgn
-# **/gmgn/data
-# **/gmgn/logs
-# **/gmgn/screenshots
+**/gmgn/data
+**/gmgn/logs
+**/gmgn/screenshots
 
 # node
 **/node_modules/
