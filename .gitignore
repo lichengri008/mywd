@@ -9,3 +9,10 @@
 crawler/data
 crawler/logs
 crawler/screenshots
+
+# node
+**/node_modules/
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/
